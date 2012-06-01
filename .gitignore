@@ -1,0 +1,9 @@
+chroot
+auto
+cache
+config
+.stage
+binary.log
+livecd*
+binary*
+dist/*

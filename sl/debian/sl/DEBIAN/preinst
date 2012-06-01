@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+# Automatically added by dh_ubuntu_defaults
+if [ "$1" = install -o "$1" = upgrade ]; then
+    dpkg-divert --package sl --rename --divert /usr/share/rhythmbox/plugins/iradio/iradio-initial.xspf.ubuntu-defaults --add /usr/share/rhythmbox/plugins/iradio/iradio-initial.xspf
+fi
+# End automatically added section
+# Automatically added by dh_ubuntu_defaults
+if [ "$1" = install -o "$1" = upgrade ]; then
+    dpkg-divert --package sl --rename --divert /usr/lib/firefox/distribution/distribution.ini.ubuntu-defaults --add /usr/lib/firefox/distribution/distribution.ini
+fi
+# End automatically added section
