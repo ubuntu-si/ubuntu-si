@@ -1,9 +1,9 @@
-chroot
-auto
-cache
-config
-.stage
-binary.log
-livecd*
-binary*
 dist/*
+/chroot
+/binary.log
+/auto
+/cache
+binary*
+livecd*
+/.stage
+/config
