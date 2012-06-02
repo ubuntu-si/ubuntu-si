@@ -9,3 +9,13 @@
 # gnome-sudoku
 # simple-scan
 # sol aisleriot
+@clear
+ubuntu-software-center
+nautilus-home
+libreoffice-writer
+firefox
+thunderbird
+empathy
+rhythmbox
+shotwell
+gnome-terminal

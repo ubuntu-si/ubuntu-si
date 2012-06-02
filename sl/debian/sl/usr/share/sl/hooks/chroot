@@ -9,12 +9,12 @@ set -e
 
 apt-get -y update
 apt-get -y upgrade
-apt-get purge totem -y
+apt-get purge gwibber -y
 
-apt-get -y install ntp firefox-locale-sl thunderbird-locale-sl hyphen-sl language-pack-gnome-sl language-pack-gnome-sl-base language-pack-sl libreoffice-help-sl libreoffice-l10n-sl myspell-sl
+apt-get -y install firefox-locale-sl thunderbird-locale-sl hyphen-sl language-pack-gnome-sl language-pack-gnome-sl-base language-pack-sl libreoffice-help-sl libreoffice-l10n-sl myspell-sl
 apt-get -y autoremove --purge
 apt-get -y clean
 
 echo "Europe/Ljubljana" > /etc/timezone
-gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string --set "/desktop/gnome/interface/gtk_theme" "Ambiance"
+gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string --set "/desktop/gnome/interface/gtk_theme" "Radiance"
 
