@@ -1,0 +1,18 @@
+#!/bin/sh
+set -e
+
+# Hook for building live images
+#
+# This script is run in the built chroot after all packages are installed,
+# before it is packed into a squashfs. This is where you can apply extra tweaks
+# to the live system.
+
+apt-get -y update
+apt-get -y upgrade
+apt-get purge gwibber -y
+
+apt-get -y install firefox-locale-sl thunderbird-locale-sl hyphen-sl language-pack-gnome-sl language-pack-gnome-sl-base language-pack-sl libreoffice-help-sl libreoffice-l10n-sl myspell-sl
+apt-get -y autoremove --purge
+apt-get -y clean
+
+echo "Europe/Ljubljana" > /etc/timezone

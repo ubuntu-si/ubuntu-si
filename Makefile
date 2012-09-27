@@ -1,9 +1,9 @@
 deb:
-	cd sl && dpkg-buildpackage -d -us -uc -F && cd .. && mv sl_* dist
+	cd siubuntu-defaults && dpkg-buildpackage -d -us -uc -F && cd .. && mv siubuntu-defaults_* dist
 iso:
-	ubuntu-defaults-image --package dist/sl_*_all.deb --components main,restricted,universe
+	ubuntu-defaults-image --package dist/siubuntu-defaults_*_all.deb --components main,restricted,universe
 test:
-	kvm -m 1024 -cdrom /home/dz0ny/sl/binary-hybrid.iso -vga std -sdl
+	kvm -m 1024 -cdrom binary.hybrid.iso -vga std -sdl
 
 clean:
 	rm dist/*

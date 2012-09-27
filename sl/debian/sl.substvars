@@ -1,2 +1,0 @@
-ubuntudefaults:Recommends=myunity, vlc
-misc:Depends=dconf-gsettings-backend | gsettings-backend

@@ -1,0 +1,13 @@
+# List of radio stations in Rhythmbox and Banshee
+#
+# Format: arbitrarily many lines with
+# URL; Genre; Name
+#
+# Example:
+# http://www.radioparadise.com/musiclinks/rp_128.m3u; Eclectic Rock; Radio Paradise
+# http://www.swr3.de/wraps/musik/webradio/aplayer/stream_extern.php?format=mp3e&channel=0; Pop; SWR3
+
+http://mp3.rtvslo.si/val202; Lokalni radio; Val 202
+http://mp3.rtvslo.si/ra1; Lokalni radio; Prvi program
+http://mp3.rtvslo.si/ars; Lokalni radio; ARS
+http://radioterminal.si/radio; Indie Rock Pop; Radio Terminal
