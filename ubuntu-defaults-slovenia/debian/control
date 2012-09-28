@@ -1,12 +1,12 @@
-Source: siubuntu-defaults
+Source: ubuntu-defaults-slovenia
 Section: metapackages
 Priority: optional
-Maintainer: dz0ny <dz0ny@shortmail.me>
+Maintainer: dz0ny <dz0ny@namizni>
 Build-Depends: debhelper (>= 7.0.50~),
  ubuntu-defaults-builder
 Standards-Version: 3.9.3
 
-Package: siubuntu-defaults
+Package: ubuntu-defaults-slovenia
 Architecture: all
 Depends: ${misc:Depends},
  ${ubuntudefaults:Depends}

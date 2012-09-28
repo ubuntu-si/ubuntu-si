@@ -1,0 +1,8 @@
+# Automatically added by dh_ubuntu_defaults
+# not covered by usual gconf trigger
+if [ "$1" = "configure" ]; then
+    mkdir -p /var/lib/gconf/ubuntu-2d.default
+    update-gconf-defaults --source /usr/share/gconf/ubuntu-2d/default \
+                          --destination /var/lib/gconf/ubuntu-2d.default --no-signal
+fi
+# End automatically added section

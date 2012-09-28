@@ -1,16 +1,16 @@
 deb:
-	cd siubuntu-defaults && dpkg-buildpackage -d -us -uc -F && cd .. && mv siubuntu-defaults_* dist
+	cd ubuntu-defaults-slovenia && debuild && cd .. && mv ubuntu-defaults-slovenia_* dist
 iso:
-	ubuntu-defaults-image --package dist/siubuntu-defaults_*_all.deb --components main,restricted,universe --arch amd64
+	ubuntu-defaults-image --package dist/ubuntu-defaults-slovenia_*_all.deb --components main,restricted,universe --arch amd64
 test:
 	kvm -m 1024 -cdrom binary.hybrid.iso -vga std -sdl
 zsync:
 	zsyncmake binary.hybrid.iso -u binary.hybrid.iso
 
 clean:
-	rm dist/*
+	rm -rf .build auto cache chroot config local binary.log ubuntu-defaults-slovenia/debian/ubuntu-defaults-slovenia*
 
 all:
-	clean deb iso
+	iso zsync
 
-.PHONY: deb iso test clean
+.PHONY: deb iso test zsync clean

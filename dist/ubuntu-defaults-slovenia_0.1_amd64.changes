@@ -1,0 +1,49 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Format: 1.8
+Date: Fri, 28 Sep 2012 13:46:10 +0200
+Source: ubuntu-defaults-slovenia
+Binary: ubuntu-defaults-slovenia
+Architecture: source all
+Version: 0.1
+Distribution: UNRELEASED
+Urgency: low
+Maintainer: dz0ny <dz0ny@namizni>
+Changed-By: dz0ny <dz0ny@namizni>
+Description: 
+ ubuntu-defaults-slovenia - Default settings for Ubuntu customizations
+Changes: 
+ ubuntu-defaults-slovenia (0.1) UNRELEASED; urgency=low
+ .
+   * Initial release.
+Checksums-Sha1: 
+ d6b9c3f111f6b63f66a37f9ef8b901b5f60a67ac 1491 ubuntu-defaults-slovenia_0.1.dsc
+ 2ae114d57d0a95c8c42541974b06a92a882c8417 6868 ubuntu-defaults-slovenia_0.1.tar.gz
+ e6059d2fd795bf61dfe00a1e4ecc912c55d310b9 6248 ubuntu-defaults-slovenia_0.1_all.deb
+Checksums-Sha256: 
+ 5e530dd83901493d1fc9bb2f673e3125a1a0c5d508f6e612ef1cec418c506764 1491 ubuntu-defaults-slovenia_0.1.dsc
+ ae6380485d195b0b172f3ba2bcd4c92f335cf939c3ea658bd92c0415251a4e6a 6868 ubuntu-defaults-slovenia_0.1.tar.gz
+ 80c7de49c946af9018e432b61876e072dad487b81c03af63b3dad3acdcda425d 6248 ubuntu-defaults-slovenia_0.1_all.deb
+Files: 
+ 0050cb3723e54dbcd5928c10c04234f5 1491 metapackages optional ubuntu-defaults-slovenia_0.1.dsc
+ 5ad87bb94663330396b5a1385c14c7eb 6868 metapackages optional ubuntu-defaults-slovenia_0.1.tar.gz
+ 2a44b0f54bddc398f4bc1e4b6ec65fec 6248 metapackages optional ubuntu-defaults-slovenia_0.1_all.deb
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.11 (GNU/Linux)
+
+iQIcBAEBAgAGBQJQZdOCAAoJEHTHkMNXNQCbhvcP/142/KvU1Sghma33wgA1Ux/H
+yx8BaIkg/gmXdw3MGuppMo4zHFVkJqoGcYZdIT5NAPQOjK/wgTiI6s7TaZGwccD6
+ZRlWqEpq3+DJZ/uuuAwmTmnOCHpV5Tk7A2QUM+KFLGXzUIP+CCuLpv3am2w6dw03
+paZpLzVe67HLV4FYdS8tYllA+5k3P1G1PbjNpr+8zIGFzGkR0/Elv/vn8pYyeBJ9
+Wyv5dIMvNd4+1ssFiC0SkhWNJ4ht0jklU+ZsKhDKU4gpwNnBHVZOOYOk7ZZuAEzC
+otGvFon19CEz/QFDPqTRyWNta8nNPfnxjQ5dgyveapIc/nsxc5J7I9a07Snx6yB3
+iOGQmE8+0R88htC9nZEfBb/xOHuzeWiqKvUk8HJRE3u3vAUzBWXRGN7ZIZjsWUm1
+floHkLsTUqyREnSIgibQDgYQkRV+iBRW87hIlgBrMQ2WlPO5JbuDFAOabB/yWenS
+RoLSG+gwF0nOEr4lnleII3oujSEVbBYtJSooGLUCEjybD/RgAn+EQTUU4j9mkADx
+ujsFGJ8Lgnh8Hk4ZdEyPzWuaGaH0IIdxLnVNvMGw2HTKuPEYuCSMm98n0zJ/Cv7Y
+AzU4Kl8/NGD8CaBozbTJhw7Aot6T+PxeoNUEfJoODjS4ggD0HSCKIGulo4lpaxIk
+Zfcg03kRn2RrTPQb7YNS
+=EZaK
+-----END PGP SIGNATURE-----
