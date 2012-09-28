@@ -1,7 +1,7 @@
 deb:
 	cd ubuntu-defaults-slovenia && debuild && cd .. && mv ubuntu-defaults-slovenia_* dist
 iso:
-	ubuntu-defaults-image --package dist/ubuntu-defaults-slovenia_*_all.deb --components main,restricted,universe --arch amd64
+	ubuntu-defaults-image --package dist/ubuntu-defaults-slovenia_*_all.deb --components main,restricted,universe
 test:
 	kvm -m 1024 -cdrom binary.hybrid.iso -vga std -sdl
 zsync:
