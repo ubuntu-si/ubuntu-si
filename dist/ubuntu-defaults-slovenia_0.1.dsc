@@ -12,26 +12,26 @@ Build-Depends: debhelper (>= 7.0.50~), ubuntu-defaults-builder
 Package-List: 
  ubuntu-defaults-slovenia deb metapackages optional
 Checksums-Sha1: 
- 2ae114d57d0a95c8c42541974b06a92a882c8417 6868 ubuntu-defaults-slovenia_0.1.tar.gz
+ b349c3aace9a23b873ff5820e180169bf9c25628 7313 ubuntu-defaults-slovenia_0.1.tar.gz
 Checksums-Sha256: 
- ae6380485d195b0b172f3ba2bcd4c92f335cf939c3ea658bd92c0415251a4e6a 6868 ubuntu-defaults-slovenia_0.1.tar.gz
+ 0d5a735365b4e69e11ab3f1927d9b1d1a3dcb73efb9cbd3540f7498a4891f4df 7313 ubuntu-defaults-slovenia_0.1.tar.gz
 Files: 
- 5ad87bb94663330396b5a1385c14c7eb 6868 ubuntu-defaults-slovenia_0.1.tar.gz
+ 9412c1bf5dcf75149448f344ce94c102 7313 ubuntu-defaults-slovenia_0.1.tar.gz
 
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.11 (GNU/Linux)
 
-iQIcBAEBAgAGBQJQZdOCAAoJEHTHkMNXNQCbdz8P/1efGzeNzZWV03MDFarq9aXw
-1NZV2e3AnZpPKEpNQHAILXoV/ThuIHDeDN2WbX1lWbTMhyrwwC/reNn8gGEkHaYe
-rmxdcWVMS421boqBjACtXjxExXE2OXsRw5OORTTwSaAKfLs/2vWAypzttdyR4X6J
-gbbNZxI2GmtUYj7AwdErTxDVRbaqOeJy2KsNw353/Q/rCA0fEXOuYVa2ZBS1umxw
-OSa1p4ySExSilkf0kHXVxBjnxwvPmGJaT4vO/VsCDiFZZxyRE0cR2nYZU8pJwUwi
-p3cYYj3gvW4OpVbivUkt6CdFHt7yNo3mHAVYVBS3wWxpXMydNAcpnsrUXsvL72Ml
-U9ekmNdGotHVXqMzVS1b2L7pDYmJu+03Jtztz3Xm1caIQ5cEUCzCJ1AhZjT0lok6
-+MiNUG4Kb8dc8AZfbUzfe7fX6mUA1TnCP7wHkg8RQwbM5lstwgDrVIblvG+slbBC
-hGP7HmQDLMrR40h6UoXbR/xQsocoVNki29Kn1XWJf2pu31OO7sSOpl6a7h7lbY6b
-aeIiy0zBtATOxotXWkodubIZWpiAIS9TPmdwUxmik3hZUFsHm69LyC1J4XGGA2vD
-Do6jE9wE8lr85Koyyjr1gOfHVKFWA6bCiV0tzOfhGQslWjgIA+F+sxUDb/E34BWZ
-bjp1qz0XJOLbk1G51/gX
-=bb5A
+iQIcBAEBAgAGBQJQZfANAAoJEHTHkMNXNQCbhoEQAJjKxP91UC9tTvNT+xp9/n3d
++Dm26aHuxZEeMCQXh4L+5+sIUTG3kMTNc8GJK5uNPnB2grMIMSS2L8BcaShNButx
+m//DapwljJd0urQdUzDdbwElgakrQAIiuwrXZFlXr8Hsr6rGssLjxbjMlEt+FrtH
+xKcdytmnfXOQfvxsgU89u5M2qlDXMXRu3D3JeyApFDjpAEgVB+1T/1zRkgxO5C+h
+hOhIfY8QtKXuu9nqWGG1e/iv5bb/sCjaJSXTnQAkbKz/MhO/nWetHDtydJGo550E
+mDms8VxGY00U2+jCTemR4mqLr3xRPyxleA90Ep65zTqlm17QEBFW5af+0xgevmTa
+z6bAYzGJdAxUmYuPVxNA/bsddgMQXzU0oLOBlqC8/kWEUqRepMgUM+JFzVb9QVR/
+p5ShCrzTHBRNXZ1d0fwPJF+4tah0R+rwBJacyjvBejcHufxpeSfyWecV+rHeaYKO
+KPpups3EjIF5sQA89aQklC1YsP28Bji10/fQXUnnbESangdPXE8+3OgfOliF4E7n
+wxoaw2AmD9tbxgI/b244HhMbi/KudhVuWrWyb1voOLdYlGxwlrH08PkP+a43iMvr
+b5Mv6PV5LuKbmKQxbQ3aSRpzCW8avwOUivTdWr/lt36hUUPHrYcOlGE9N41mnxYj
+YjW4aWXHLZcNU6ImBTGa
+=LNG7
 -----END PGP SIGNATURE-----

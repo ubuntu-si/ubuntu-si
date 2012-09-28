@@ -18,32 +18,32 @@ Changes:
  .
    * Initial release.
 Checksums-Sha1: 
- d6b9c3f111f6b63f66a37f9ef8b901b5f60a67ac 1491 ubuntu-defaults-slovenia_0.1.dsc
- 2ae114d57d0a95c8c42541974b06a92a882c8417 6868 ubuntu-defaults-slovenia_0.1.tar.gz
- e6059d2fd795bf61dfe00a1e4ecc912c55d310b9 6248 ubuntu-defaults-slovenia_0.1_all.deb
+ 927d298d2370bf424091004d5c4ee8b352715930 1491 ubuntu-defaults-slovenia_0.1.dsc
+ b349c3aace9a23b873ff5820e180169bf9c25628 7313 ubuntu-defaults-slovenia_0.1.tar.gz
+ 33a1aa4d643b406637c524ed67164ff7c5b5f37f 6848 ubuntu-defaults-slovenia_0.1_all.deb
 Checksums-Sha256: 
- 5e530dd83901493d1fc9bb2f673e3125a1a0c5d508f6e612ef1cec418c506764 1491 ubuntu-defaults-slovenia_0.1.dsc
- ae6380485d195b0b172f3ba2bcd4c92f335cf939c3ea658bd92c0415251a4e6a 6868 ubuntu-defaults-slovenia_0.1.tar.gz
- 80c7de49c946af9018e432b61876e072dad487b81c03af63b3dad3acdcda425d 6248 ubuntu-defaults-slovenia_0.1_all.deb
+ 50cca4f120ab313340baeed7f9a610c087cef59ff841ee7a87949ad715098d00 1491 ubuntu-defaults-slovenia_0.1.dsc
+ 0d5a735365b4e69e11ab3f1927d9b1d1a3dcb73efb9cbd3540f7498a4891f4df 7313 ubuntu-defaults-slovenia_0.1.tar.gz
+ 2c48ee05b6c279bf9cd22e3a6cc50174b739abe736977c63ede3a303d2a5ed6a 6848 ubuntu-defaults-slovenia_0.1_all.deb
 Files: 
- 0050cb3723e54dbcd5928c10c04234f5 1491 metapackages optional ubuntu-defaults-slovenia_0.1.dsc
- 5ad87bb94663330396b5a1385c14c7eb 6868 metapackages optional ubuntu-defaults-slovenia_0.1.tar.gz
- 2a44b0f54bddc398f4bc1e4b6ec65fec 6248 metapackages optional ubuntu-defaults-slovenia_0.1_all.deb
+ e84ede7374158e1e7bd4ecbe534ac84e 1491 metapackages optional ubuntu-defaults-slovenia_0.1.dsc
+ 9412c1bf5dcf75149448f344ce94c102 7313 metapackages optional ubuntu-defaults-slovenia_0.1.tar.gz
+ 3a204808b4fbd7d862fa3b7669d5d010 6848 metapackages optional ubuntu-defaults-slovenia_0.1_all.deb
 
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.11 (GNU/Linux)
 
-iQIcBAEBAgAGBQJQZdOCAAoJEHTHkMNXNQCbhvcP/142/KvU1Sghma33wgA1Ux/H
-yx8BaIkg/gmXdw3MGuppMo4zHFVkJqoGcYZdIT5NAPQOjK/wgTiI6s7TaZGwccD6
-ZRlWqEpq3+DJZ/uuuAwmTmnOCHpV5Tk7A2QUM+KFLGXzUIP+CCuLpv3am2w6dw03
-paZpLzVe67HLV4FYdS8tYllA+5k3P1G1PbjNpr+8zIGFzGkR0/Elv/vn8pYyeBJ9
-Wyv5dIMvNd4+1ssFiC0SkhWNJ4ht0jklU+ZsKhDKU4gpwNnBHVZOOYOk7ZZuAEzC
-otGvFon19CEz/QFDPqTRyWNta8nNPfnxjQ5dgyveapIc/nsxc5J7I9a07Snx6yB3
-iOGQmE8+0R88htC9nZEfBb/xOHuzeWiqKvUk8HJRE3u3vAUzBWXRGN7ZIZjsWUm1
-floHkLsTUqyREnSIgibQDgYQkRV+iBRW87hIlgBrMQ2WlPO5JbuDFAOabB/yWenS
-RoLSG+gwF0nOEr4lnleII3oujSEVbBYtJSooGLUCEjybD/RgAn+EQTUU4j9mkADx
-ujsFGJ8Lgnh8Hk4ZdEyPzWuaGaH0IIdxLnVNvMGw2HTKuPEYuCSMm98n0zJ/Cv7Y
-AzU4Kl8/NGD8CaBozbTJhw7Aot6T+PxeoNUEfJoODjS4ggD0HSCKIGulo4lpaxIk
-Zfcg03kRn2RrTPQb7YNS
-=EZaK
+iQIcBAEBAgAGBQJQZfANAAoJEHTHkMNXNQCb2LYQAIi1mpLz3kqzlA+Hi83dwCHJ
+R/Aw0ERKYgVxGVZXLEh7RCvDR1M+1fZPby3mJlW/tKwPShkZPUNaPtDEiLx4roaX
+WCKR5B1sVYWmuZRrkbni1nipK3vHNeRP4B+dE8JSzT0AqqQUz3W+gYqChbSoZIbI
+kPVxnXyeio1KELJzbXXC67RzW4TqF2GHI4rzf1FAS3pU+/l7oIQdRXltAlB5cIlc
+HQRRuPbW7qp9XUJnjX6VM/sZ3tse34RobcEBMh5IoSf0+FiAObYkpq+s2R+fjlIV
+7H7w4wDpqSnvQ13EEWIaJ4s6hO5ejgcwcOBaJ+0dcx2b9b7B7goqqwXwD8FnIlbr
+BWD/Hetxhj03G00mAmsp+wQJp3MGRlnD1X6twfPgbf+1uATOR8GCZedMxZuLmYyO
+iBmnOfQE17bHbwlBjze+VWOI59XJPpIfhD1S6FQFVcl7+HKWnZzt90cj5l8kpFeF
+ks18MKNoshPpyrPhaTwqRwnNji0/kKe9WXyMjSX+OS/g8IAFMwqN5MG7nyRjo64P
+162gTz3wd62BZoNHx1yaNrGdxW0RRDEZb0YnWXMnO9wa41VL9GelynZhYV4HJe0h
+ImVnON1RZSfyhWgHwfKLcrspITJ5iOUNeWbzMVaBa2WOCGbAbpDP3M+8H+ZQRJ/0
+6Lxjnh0i8mV6xkz47RGS
+=UyjY
 -----END PGP SIGNATURE-----

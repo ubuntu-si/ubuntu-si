@@ -1,10 +1,10 @@
-2c204999432d22a41e9abcf7d738212b  usr/lib/firefox/distribution/distribution.ini
+67931b4c9296ee5f2318dd0de5eafc7a  usr/lib/firefox/distribution/distribution.ini
 4a02023e88b08163c6c1a7068a04039c  usr/share/doc/ubuntu-defaults-slovenia/changelog.gz
 02c48a814696f07bba6373ef74ae89c8  usr/share/doc/ubuntu-defaults-slovenia/copyright
 ca0791cd4859c01af1423fb9f9928e77  usr/share/gconf/ubuntu-2d/default/zz_ubuntu-defaults-slovenia
 6b9db8ef47ed2792d95b5859a4963baa  usr/share/glib-2.0/schemas/ubuntu-defaults-slovenia.gschema.override
 1276a5ebe555b69f57a976f07671aae9  usr/share/icons/hicolor/scalable/apps/ubuntu-si.svg
-5c91f59ba13af499014e3af9f26a94ce  usr/share/rhythmbox/plugins/iradio/iradio-initial.xspf
+6fd6a2f6c7f0cc4ca702a535290e3b4a  usr/share/rhythmbox/plugins/iradio/iradio-initial.xspf
 bc610fa23aa902d16f0723dcdd18f63d  usr/share/ubuntu-defaults-slovenia/hooks/chroot
 ac5585d98646d255299c359140537783  usr/share/ubuntu-defaults-slovenia/keyboard.txt
 9a2d49fea6eea05ac512f3edcac5adca  usr/share/ubuntu-defaults-slovenia/langpacks.txt

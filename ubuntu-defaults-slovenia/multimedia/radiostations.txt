@@ -7,7 +7,19 @@
 # http://www.radioparadise.com/musiclinks/rp_128.m3u; Eclectic Rock; Radio Paradise
 # http://www.swr3.de/wraps/musik/webradio/aplayer/stream_extern.php?format=mp3e&channel=0; Pop; SWR3
 
-http://mp3.rtvslo.si/val202; Lokalni radio; Val 202
-http://mp3.rtvslo.si/ra1; Lokalni radio; Prvi program
-http://mp3.rtvslo.si/ars; Lokalni radio; ARS
+http://mp3.rtvslo.si/val202; Nacionalni radio; Val 202
+http://mp3.rtvslo.si/ra1; Nacionalni radio; Prvi program
+http://mp3.rtvslo.si/ars; Nacionalni radio; ARS
 http://radioterminal.si/radio; Indie Rock Pop; Radio Terminal
+mms://live.radio1.si/radio1; Celotna Slovenija; Radio 1
+mms://live.radio1.si/antena; Osrednja Slovenija; Radio Antena
+http://live.radiocapris.com/pls/low.m3u; Primorska; Radio Capris
+http://82.149.22.34:8000/CityMp364mono.mp3; Štajerska; Radio City
+http://mp3.rtvslo.si/rsi; International; Radio Slovenia International
+http://193.105.67.24:8016; Osrednja Slovenija; Radio Ekspress
+http://193.105.67.24:8016; Osrednja Slovenija; Radio Hit
+http://93.103.12.127:8000/;stream/1; Dolenjska; Radio Krka
+http://195.95.158.131:7010/; Zasavje; Radio Kum
+http://real1.ognjisce.si:8000/ognjisce.mp3; Katoliški; Radio Ognjišče
+http://kruljo.radiostudent.si:8000/hiq; Indie; Radio Študent
+http://www.radiotriglav.si:8000/; Gorenjska; Radio Triglav
