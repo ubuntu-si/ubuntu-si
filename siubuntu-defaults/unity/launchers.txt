@@ -18,4 +18,3 @@ thunderbird
 empathy
 rhythmbox
 shotwell
-gnome-terminal
