@@ -4,6 +4,8 @@ iso:
 	ubuntu-defaults-image --package dist/siubuntu-defaults_*_all.deb --components main,restricted,universe --arch amd64
 test:
 	kvm -m 1024 -cdrom binary.hybrid.iso -vga std -sdl
+zsync:
+	zsyncmake binary.hybrid.iso -u binary.hybrid.iso
 
 clean:
 	rm dist/*
