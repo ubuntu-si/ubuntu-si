@@ -18,3 +18,5 @@ apt-get -y clean
 echo "Europe/Ljubljana" > /etc/timezone
 gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string --set "/desktop/gnome/interface/gtk_theme" "Radiance"
 
+#Ubuntu vodič
+wget https://www.ubuntu.si/wordpress/wp-content/uploads/ubuntu-manual-sl-final.pdf "/home/ubuntu/Desktop/Kako začeti z Ubuntujem.pdf"
