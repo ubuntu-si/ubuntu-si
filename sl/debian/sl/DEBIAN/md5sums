@@ -5,7 +5,7 @@ c0306fc89948ce9e920cf72b4f143f8a  usr/share/doc/sl/copyright
 85712fb491563283296c743b936baade  usr/share/gconf/ubuntu-2d/default/zz_sl
 19b15fb98470fceeee3ce4841f989601  usr/share/glib-2.0/schemas/sl.gschema.override
 2cb5abe1e5fe86ec6ce4b83b1997608d  usr/share/rhythmbox/plugins/iradio/iradio-initial.xspf
-359599fc47bc80ad09ce48b10c7f87d3  usr/share/sl/hooks/chroot
+49c782f6663f20b04180e5c19fbd939d  usr/share/sl/hooks/chroot
 ac5585d98646d255299c359140537783  usr/share/sl/keyboard.txt
 9a2d49fea6eea05ac512f3edcac5adca  usr/share/sl/langpacks.txt
 dbbc05c35f15f5a3ace22dfd9bb855dc  usr/share/sl/language.txt

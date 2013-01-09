@@ -34,7 +34,7 @@ gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults
 
 #Ubuntu vodič
 mkdir -p /home/ubuntu/Desktop/
-wget http://dk.fdv.uni-lj.si/ek/pdfs/ek_kovacic_2010_Linux_na_namizju.pdf "/home/ubuntu/Desktop/Linux na namizju.pdf"
-wget https://www.ubuntu.si/wordpress/wp-content/uploads/ubuntu-manual-sl-final-1204.pdf "/home/ubuntu/Desktop/Kako začeti z Ubuntujem.pdf"
+wget -q http://dk.fdv.uni-lj.si/ek/pdfs/ek_kovacic_2010_Linux_na_namizju.pdf "/home/ubuntu/Desktop/Linux na namizju.pdf" > /dev/null 2>&1
+wget -q https://www.ubuntu.si/wordpress/wp-content/uploads/ubuntu-manual-sl-final-1204.pdf "/home/ubuntu/Desktop/Kako začeti z Ubuntujem.pdf" > /dev/null 2>&1
 chown ubuntu:ubuntu /home/ubuntu/ -R
 
