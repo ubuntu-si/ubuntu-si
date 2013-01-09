@@ -1,2 +1,2 @@
 [com.canonical.Unity.Launcher]
-favorites=['ubuntu-software-center.desktop', 'nautilus-home.desktop', 'libreoffice-writer.desktop', 'firefox.desktop', 'thunderbird.desktop', 'empathy.desktop', 'rhythmbox.desktop', 'shotwell.desktop', 'gnome-terminal.desktop']
+favorites=['application://ubuntu-software-center.desktop', 'application://nautilus-home.desktop', 'application://libreoffice-writer.desktop', 'application://firefox.desktop', 'application://thunderbird.desktop', 'application://empathy.desktop', 'application://rhythmbox.desktop', 'application://shotwell.desktop', 'application://gnome-terminal.desktop']

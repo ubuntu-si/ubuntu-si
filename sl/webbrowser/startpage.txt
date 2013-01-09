@@ -6,4 +6,5 @@
 #
 # Example:
 # http://www.ubuntuforums.org?release=${distro_release_number}
-http://www.ubuntu.si?release=${distro_release_number}
+https://www.ubuntu.si/?utm_medium=browser&utm_campaign=iso&utm_source=desktop-${distro_release_number}
+

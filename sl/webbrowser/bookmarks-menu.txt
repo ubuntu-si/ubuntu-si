@@ -5,5 +5,18 @@
 # URL Name
 #
 # Example:
-# http://www.ubuntu.de	Deutsches Ubuntu-Forum
-# http://www.heise.de	heise Computer-Nachrichten
+# http://www.ubuntu.de  Deutsches Ubuntu-Forum
+# http://www.heise.de heise Computer-Nachrichten
+http://www.rtvslo.si/ Portal RTV Slovenija
+http://www.24ur.com 24ur
+http://www.delo.si Delo
+http://www.dnevnik.si Dnevnik
+http://www.finance.si/ Finance
+http://www.bolha.com Bolha
+http://www.ceneje.si Ceneje.si
+http://mimovrste.com Mimovrste
+http://www.enaa.com Enaa
+http://www.pixmania.si Pixmania
+http://www.avto.net Avto.net
+http://www.arso.gov.si/vreme/napovedi%20in%20podatki/ Vremenska napoved ARSO
+http://gis.arso.gov.si/atlasokolja/ Atlas okolja
