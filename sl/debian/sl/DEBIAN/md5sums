@@ -2,10 +2,10 @@ c46d838a30b1531e738bc39427b4e9ca  usr/lib/firefox/distribution/distribution.ini
 89c2eea988339cb40c060e2e908666be  usr/share/applications/Vodič.desktop
 f8cf16a9b292afb9d314fbf75376903b  usr/share/doc/sl/changelog.gz
 c0306fc89948ce9e920cf72b4f143f8a  usr/share/doc/sl/copyright
-85712fb491563283296c743b936baade  usr/share/gconf/ubuntu-2d/default/zz_sl
-19b15fb98470fceeee3ce4841f989601  usr/share/glib-2.0/schemas/sl.gschema.override
+a55b5806a69ebdc3e0dbe559ef2bd478  usr/share/gconf/ubuntu-2d/default/zz_sl
+5812483160802bf5cf71b161be402109  usr/share/glib-2.0/schemas/sl.gschema.override
 2cb5abe1e5fe86ec6ce4b83b1997608d  usr/share/rhythmbox/plugins/iradio/iradio-initial.xspf
-49c782f6663f20b04180e5c19fbd939d  usr/share/sl/hooks/chroot
+2293ed5be7c53c1d26320b3afc416e7a  usr/share/sl/hooks/chroot
 ac5585d98646d255299c359140537783  usr/share/sl/keyboard.txt
 9a2d49fea6eea05ac512f3edcac5adca  usr/share/sl/langpacks.txt
 dbbc05c35f15f5a3ace22dfd9bb855dc  usr/share/sl/language.txt

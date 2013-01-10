@@ -9,7 +9,7 @@
 # gnome-sudoku
 # simple-scan
 # sol aisleriot
-@clear
+
 ubuntu-software-center
 nautilus-home
 libreoffice-writer
