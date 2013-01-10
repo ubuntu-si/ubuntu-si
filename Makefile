@@ -1,4 +1,5 @@
 deb:
+	rm dist/*
 	cd sl && dpkg-buildpackage -d -us -uc -F && cd .. && mv sl_* dist
 iso:
 	ubuntu-defaults-image --release precise --package dist/sl_*_all.deb --components main,restricted,universe
