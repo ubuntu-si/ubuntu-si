@@ -1,12 +1,15 @@
 dist/*
-chroot.packages.live
+*~
 /binary.log
+livecd*
 /cache
+/si-ubuntu-defaults/debian/si-ubuntu-defaults*
+si-ubuntu-defaults/debian/files
 chroot.packages.install
 /chroot
 /config
-livecd*
 binary*
+chroot.packages.live
 chroot.headers
 /.stage
 /.build
