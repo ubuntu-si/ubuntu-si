@@ -1,4 +1,4 @@
-Source: sl
+Source: si-ubuntu-defaults
 Section: metapackages
 Priority: optional
 Maintainer: dz0ny <dz0ny@namizni>
@@ -6,7 +6,7 @@ Build-Depends: debhelper (>= 7.0.50~),
  ubuntu-defaults-builder
 Standards-Version: 3.9.3
 
-Package: sl
+Package: si-ubuntu-defaults
 Architecture: all
 Depends: ${misc:Depends},
  ${ubuntudefaults:Depends}
