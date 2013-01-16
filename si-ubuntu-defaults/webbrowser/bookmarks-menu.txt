@@ -16,7 +16,8 @@ http://www.bolha.com Bolha
 http://www.ceneje.si Ceneje.si
 http://mimovrste.com Mimovrste
 http://www.enaa.com Enaa
-http://www.pixmania.si Pixmania
 http://www.avto.net Avto.net
 http://www.arso.gov.si/vreme/napovedi%20in%20podatki/ Vremenska napoved ARSO
 http://gis.arso.gov.si/atlasokolja/ Atlas okolja
+http://https://www.ubuntu.si/ Ubuntu.si
+http://https://www.ubuntu.si/punbb/ Ubuntu.si forum

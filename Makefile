@@ -11,15 +11,13 @@ test:
 
 dist:
 	mv binary-hybrid.iso dist/
-	cd dist/
-	buildtorrent binary-hybrid.iso -a "udp://tracker.ccc.de:80" -w "http://185.14.186.232/dist/binary-hybrid.iso" binary-hybrid.iso.torrent
-	zsyncmake binary-hybrid.iso
+	cd dist/ && buildtorrent binary-hybrid.iso -a "udp://tracker.publicbt.com:80" -w "http://185.14.186.232/dist/binary-hybrid.iso" binary-hybrid.iso.torrent
+	cd dist/ && zsyncmake binary-hybrid.iso
 
 dist32:
 	mv binary-hybrid.iso dist32/
-	cd dist32/
-	buildtorrent binary-hybrid.iso -a "udp://tracker.ccc.de:80" -w "http://185.14.186.232/dist32/binary-hybrid.iso" binary-hybrid.iso.torrent
-	zsyncmake binary-hybrid.iso
+	cd dist32/ && buildtorrent binary-hybrid.iso -a "udp://tracker.publicbt.com:80" -w "http://185.14.186.232/dist32/binary-hybrid.iso" binary-hybrid.iso.torrent
+	cd dist32/ && zsyncmake binary-hybrid.iso
 
 build32:
 	deb32 iso32 dist32
