@@ -18,6 +18,7 @@ add-apt-repository ppa:libreoffice/ppa -y
 add-apt-repository ppa:otto-kesselgulasch/gimp -y
 add-apt-repository ppa:janez-troha/ubuntu-si-welcome -y
 add-apt-repository ppa:tualatrix/ppa -y
+add-apt-repository ppa:janez-troha/ubuntu-si-welcome -y
 
 #Updated PPA
 apt-get --yes --force-yes update
@@ -28,6 +29,7 @@ apt-get --yes --force-yes dist-upgrade
 apt-get --yes --force-yes install firefox-locale-sl thunderbird-locale-sl hyphen-sl language-pack-gnome-sl language-pack-gnome-sl-base language-pack-sl libreoffice-help-sl libreoffice-l10n-sl myspell-sl
 apt-get --yes --force-yes install ubuntu-si-welcome 
 apt-get --yes --force-yes install ubuntu-tweak
+apt-get --yes --force-yes install ubuntu-si-welcome
 
 #Neuporabno
 apt-get purge gwibber --yes --force-yes
@@ -41,6 +43,7 @@ gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults
 
 wget http://dk.fdv.uni-lj.si/ek/pdfs/ek_kovacic_2010_Linux_na_namizju.pdf -O "/usr/share/example-content/Linux na namizju.pdf"
 wget --no-check-certificate https://www.ubuntu.si/wordpress/wp-content/uploads/ubuntu-manual-sl-final-1204.pdf -O "/usr/share/example-content/Kako začeti z Ubuntujem.pdf"
+
 
 #fix https://github.com/dz0ny/ubuntu-si/issues/1
 sed -i 's/\"//g' /usr/lib/firefox/distribution/distribution.ini
