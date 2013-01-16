@@ -1,0 +1,104 @@
+#!/bin/sh
+# Automatic chrooting in a ubuntu-defaults-image tree
+#
+# Authors: Paolo Sammicheli <xdatap1@ubuntu.com>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+# Decomment for enabling debug
+# set -x
+
+help () {
+    cat >&2 <<EOF
+Usage: $0 [--help]
+
+It sets up a proper chroot enviroment, start it and clean it after the operations. 
+
+It must be invoked from a directory containing files made with 
+ubuntu-default-image. More infos: https://wiki.ubuntu.com/ItalianCD/Tools
+
+Options:
+  --help                  : shown this help
+EOF
+}
+
+chroot_file () {
+
+$SUDO cat <<EOF > ./start-chroot
+#!/bin/sh
+echo "setting up chroot enviroment..."
+mount none -t proc /proc
+mount none -t sysfs /sys
+mount none -t devpts /dev/pts
+export HOME=/root
+export LC_ALL=C
+
+bash
+
+echo "cleaning up chroot enviroment..."
+apt-get clean
+rm -rf /tmp/*
+> /etc/resolv.conf
+> /etc/hosts
+umount -lf /proc
+umount -lf /sys
+umount -lf /dev/pts
+exit
+EOF
+
+}
+
+jump_in () {
+# checking if exist .stage directory, otherwise exit with error
+
+if [ ! -d .stage -o ! -d chroot ]; then
+	echo "\nERROR: .stage or chroot directories not found. \nYou must run this sommand from a directory containing files mage with ubuntu-defaults-image"
+else
+    echo "setting up enviroment"
+    $SUDO cp /etc/hosts chroot/etc/
+    $SUDO cp /etc/resolv.conf chroot/etc/resolv.conf
+
+    # Creating the chrooted start script
+    chroot_file
+    $SUDO mv start-chroot chroot/usr/bin/
+    $SUDO chmod +x chroot/usr/bin/start-chroot
+    
+    # starting the chroot enviroment
+    echo "entering in the chroot enviroment. Use \"exit\" for ending the session"
+    $SUDO chroot chroot usr/bin/start-chroot
+    
+    # deleting chrooted start script
+    echo "performing cleaning..."
+    $SUDO rm chroot/usr/bin/start-chroot
+fi
+}
+
+#####################
+# Starting main body
+
+# Checking sudo
+if [ "$(id -u)" = 0 ]; then
+    SUDO=env
+else
+    SUDO=sudo
+fi
+
+# Checking parameters. If so printing help
+if [ -z $1 ]; then
+	jump_in
+else
+	help
+fi

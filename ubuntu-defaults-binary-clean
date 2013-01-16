@@ -1,0 +1,72 @@
+#!/bin/sh
+# Clean the Live Build binary stage made with ubuntu-defaults-image 
+# for building the image again starting from the existing cdroot.
+#
+# Authors: Paolo Sammicheli <xdatap1@ubuntu.com>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+#set -x
+
+help () {
+    cat >&2 <<EOF
+Usage: $0 [--help]
+
+Clean the Live Build binary stage made with ubuntu-defaults-image 
+for building the image again starting from the existing cdroot.
+
+It must be invoked from a directory containing files made with 
+ubuntu-default-image. More infos: https://wiki.ubuntu.com/ItalianCD/Tools
+
+Options:
+  --help                  : shown this help
+EOF
+}
+
+clean () {
+# checking if exist .stage directory, otherwise exit with error
+
+if [ ! -d .stage ]; then
+	echo "\nERROR: .stage directory not found. \nYou must run this sommand from a directory containing files mage with ubuntu-defaults-image"
+else
+	echo "Saving configuration in a tarball..."
+	tar --preserve-permissions -czf config.tar.gz config/ binary.packages.*
+
+	echo "Performing live-build clean"
+	$SUDO lb clean --binary
+
+	echo "restoring original configuration..."
+	tar --preserve-permissions -zxvf config.tar.gz > /dev/null
+
+	echo "Cleaning tarball configuration files"
+	rm config.tar.gz
+fi
+}
+
+# Starting main body
+
+# Checking sudo
+if [ "$(id -u)" = 0 ]; then
+    SUDO=env
+else
+    SUDO=sudo
+fi
+
+# Checking parameters. If so printing help
+if [ -z $1 ]; then
+	clean
+else
+	help
+fi
