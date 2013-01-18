@@ -29,6 +29,7 @@ class Jobber(threading.Thread):
 
     def run(self):
         while True:
+            aktivno = None
             delo = zaposlitve.get()
             delo.handler = zaposlitve
             aktivno = delo
@@ -54,7 +55,7 @@ class IRCBOT(Bot):
     def dispatch(self, origin, args):
         cmd = "{0}".format(args[0]).encode("utf-8")
         if '.isostatus' in cmd:
-            if zaposlitve.empty():
+            if zaposlitve.empty() or aktivno is None:
                 self.msg(origin.sender, 'Mirujem')
             else:
                 self.msg(origin.sender, 'Delam')
