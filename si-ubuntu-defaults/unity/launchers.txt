@@ -10,6 +10,7 @@
 # simple-scan
 # sol aisleriot
 @clear
+ubuntu-si-welcome
 ubuntu-software-center
 nautilus-home
 libreoffice-writer
