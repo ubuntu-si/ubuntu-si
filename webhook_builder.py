@@ -148,9 +148,11 @@ def web_hook(flavor):
                                    "127.0.0.1"]:
             if request.form["payload"]:
                 payload = json.loads(request.form["payload"])
-                if "si-ubuntu-defaults" in payload.head_commit.modified:
+                if "si-ubuntu-defaults" in payload.get("head_commit").get("modified"):
                     for chan in bot.channels:
-                        bot.msg(chan, "{{0}: {1}}".format(payload.head_commit.committer.username, payload.head_commit.message))
+                        bot.msg(chan, "{{0}: {1}}".format(
+                            payload.get("head_commit").get("committer").get("username"),
+                            payload.get("head_commit").get("message")))
                         new_build = Delo(flavor)
                         zaposlitve.put(new_build)
                         return "OK"
