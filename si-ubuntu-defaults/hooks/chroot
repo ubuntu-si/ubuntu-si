@@ -44,6 +44,9 @@ gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults
 wget http://dk.fdv.uni-lj.si/ek/pdfs/ek_kovacic_2010_Linux_na_namizju.pdf -O "/usr/share/example-content/Linux na namizju.pdf"
 wget --no-check-certificate https://www.ubuntu.si/wordpress/wp-content/uploads/ubuntu-manual-sl-final-1204.pdf -O "/usr/share/example-content/Kako začeti z Ubuntujem.pdf"
 
+#Chome
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
+echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
 
 #fix https://github.com/dz0ny/ubuntu-si/issues/1
 sed -i 's/\"//g' /usr/lib/firefox/distribution/distribution.ini
