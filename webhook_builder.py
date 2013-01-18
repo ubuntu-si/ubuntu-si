@@ -6,7 +6,7 @@ import logging
 import os
 
 try:
-    from flask import Flask, render_template
+    from flask import Flask, render_template, request
 except Exception, e:
     print "pip install flask"
 
@@ -22,7 +22,7 @@ logging.basicConfig(level=logging.DEBUG,
 app = Flask(__name__)
 
 
-def build_all(flavor, history):
+def build_all(flavor):
     #git_dir = os.path.dirname(os.path.abspath(__file__))
 
     git = envoy.run("git pull")
@@ -74,11 +74,15 @@ def status():
                            })
 
 
-@app.route("/web_hook")
+@app.route("/web_hook", methods=['GET', 'POST'])
 def web_hook():
-    if not build_i386_handle.isAlive():
-        build_i386_handle.start()
-    return "OK"
+    if request.method == 'POST':
+        if request.remote_addr in ["207.97.227.253", "50.57.128.197",
+                                   "108.171.174.178", "50.57.231.61"]:
+            logging.debug(request.form["payload"])
+            if not build_i386_handle.isAlive():
+                build_i386_handle.start()
+            return "OK"
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host='0.0.0.0')
