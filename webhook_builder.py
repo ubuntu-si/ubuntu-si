@@ -47,7 +47,6 @@ def build_amd64():
     logging.debug('Exiting')
 
 build_amd64_handle = threading.Thread(name='build_amd64', target=build_amd64)
-build_amd64_handle.setDaemon(True)
 
 
 def build_i386():
@@ -56,7 +55,6 @@ def build_i386():
     logging.debug('Exiting')
 
 build_i386_handle = threading.Thread(name='build_i386', target=build_i386)
-build_i386_handle.setDaemon(True)
 
 
 @app.route("/")
@@ -81,7 +79,12 @@ def web_hook():
                                    "108.171.174.178", "50.57.231.61"]:
             logging.debug(request.form["payload"])
             if not build_i386_handle.isAlive():
-                build_i386_handle.start()
+                try:
+                    build_i386_handle.start()
+                except Exception, e:
+                    logging.debug(e)
+                    build_i386_handle.start_new_thread(name='build_i386', target=build_i386)
+                    build_i386_handle.start()
             return "OK"
 
 if __name__ == "__main__":
