@@ -3,7 +3,7 @@
 
 import threading
 import logging
-import json
+import simplejson
 from pastebin import PastebinAPI
 from Queue import Queue
 from irc import Bot
@@ -147,15 +147,15 @@ def web_hook(flavor):
                                    "108.171.174.178", "50.57.231.61",
                                    "127.0.0.1"]:
             if request.form["payload"]:
-                payload = json.loads(request.form["payload"])
+                payload = simplejson.loads(request.form["payload"])
 
                 for chan in bot.channels:
                     bot.msg(chan, "{{0}: {1}}".format(
-                        payload.get("head_commit").get("committer").get("username"),
-                        payload.get("head_commit").get("message")))
+                        payload["head_commit"]["committer"]["username"],
+                        payload["head_commit"]["message"]))
 
                 should_build = False
-                for x in payload.get("head_commit").get("modified"):
+                for x in payload["head_commit"]["modified"]:
                     if "si-ubuntu-defaults" in x:
                         should_build = True
 
