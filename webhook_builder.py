@@ -23,17 +23,22 @@ logging.basicConfig(level=logging.DEBUG,
                     )
 app = Flask(__name__)
 zaposlitve = Queue()
-aktivno = None
 
 class Jobber(threading.Thread):
 
+    aktivno = None
+
+    def koncaj(self):
+        zaposlitve.task_done()
+        self.aktivno = None
+
     def run(self):
         while True:
-            aktivno = None
-            delo = zaposlitve.get()
-            delo.handler = zaposlitve
-            aktivno = delo
-            delo.start()
+            if self.aktivno is None:
+                delo = zaposlitve.get()
+                delo.handler = self
+                self.aktivno = delo
+                delo.start()
 job_queue = Jobber()
 job_queue.start()
 
@@ -55,11 +60,11 @@ class IRCBOT(Bot):
     def dispatch(self, origin, args):
         cmd = "{0}".format(args[0]).encode("utf-8")
         if '.isostatus' in cmd:
-            if zaposlitve.empty() or aktivno is None:
+            if job_queue.aktivno is None:
                 self.msg(origin.sender, 'Mirujem')
             else:
                 self.msg(origin.sender, 'Delam')
-                for res in self.history:
+                for res in job_queue.aktivno.history:
                     self.msg(origin.sender, res)
         if '.isobuild32' in cmd and "dz0ny" in origin.nick:
             new_build = Delo('32')
@@ -116,7 +121,7 @@ class Delo(threading.Thread):
             bot.irc_notify(self.getName(), res)
 
         if self.handler:
-            self.handler.task_done()
+            self.handler.koncaj()
 
 # @app.route("/")
 # def status():
