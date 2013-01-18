@@ -74,7 +74,7 @@ def status():
                            })
 
 
-@app.route("/web_hook", methods=['GET', 'POST'])
+@app.route("/web_hook", methods=['POST'])
 def web_hook():
     if request.method == 'POST':
         if request.remote_addr in ["207.97.227.253", "50.57.128.197",
