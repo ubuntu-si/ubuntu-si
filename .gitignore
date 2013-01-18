@@ -15,3 +15,4 @@ chroot.headers
 /.stage
 /.build
 /auto
+*.pyc
