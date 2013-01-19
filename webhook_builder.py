@@ -3,7 +3,9 @@
 
 import threading
 import logging
-import simplejson
+import urlparse
+
+from datetime import datetime
 from pastebin import PastebinAPI
 from Queue import Queue
 from irc import Bot
@@ -18,12 +20,20 @@ try:
 except Exception, e:
     print "pip install envoy"
 
+try:
+    import json
+    json_decode = json.loads
+except ImportError:
+    import simplejson
+    json_decode = simplejson.loads
+
 
 logging.basicConfig(level=logging.DEBUG,
                     format='(%(threadName)-10s) %(message)s',
                     )
 app = Flask(__name__)
 zaposlitve = Queue()
+
 
 class Jobber(threading.Thread):
 
@@ -91,6 +101,7 @@ class Delo(threading.Thread):
     def __init__(self, flavor):
         self.flavor = flavor
         self.history = []
+        self.start_time = datetime.now()
         threading.Thread.__init__(self)
         self.name = "Delo-build-" + flavor
 
@@ -105,7 +116,7 @@ class Delo(threading.Thread):
         else:
             bot.irc_notify(self.getName(), " ".join(cmd.command), 'Napaka: {0}\nLog: {1}'.format(cmd.std_err, cmd.std_out))
             self.history.append(u"Command: {0} ✗".format(" ".join(cmd.command)))
-            return False
+            return False  
 
     def build_all(self):
 
@@ -121,25 +132,13 @@ class Delo(threading.Thread):
         for res in self.history:
             bot.irc_notify(self.getName(), res)
 
+        self.delta = datetime.now() - self.start_time
+        bot.irc_notify(self.getName(), "Izgradnja je trajala {0}".format(str(self.delta)))
         if self.handler:
             self.handler.koncaj()
 
-# @app.route("/")
-# def status():
-#     return render_template('status.html',
-#                            status_amd64={
-#                                "alive": build_amd64_handle.isAlive(),
-#                                "history": build_amd64_handle.isAlive(),
-#                                "checks": build_amd64_handle.isAlive(),
-#                            },
-#                            status_i386={
-#                                "alive": build_i386_handle.isAlive(),
-#                                "history": build_i386_handle.isAlive(),
-#                                "checks": build_i386_handle.isAlive(),
-#                            })
 
-
-@app.route("/web_hook/<flavor>", methods=['GET', 'POST'])
+@app.route("/web_hook/<flavor>", methods=['POST'])
 def web_hook(flavor):
     if flavor in ["64", "32"]:
         logging.debug(flavor)
@@ -147,17 +146,24 @@ def web_hook(flavor):
                                    "108.171.174.178", "50.57.231.61",
                                    "127.0.0.1"]:
             if request.form["payload"]:
-                payload = simplejson.loads(request.form["payload"])
-
-                for chan in bot.channels:
-                    bot.msg(chan, "{{0}: {1}}".format(
-                        payload["head_commit"]["committer"]["username"],
-                        payload["head_commit"]["message"]))
+                payload = request.form["payload"]
+                payload = json_decode(payload)
+                try:
+                    msg = payload["head_commit"]["committer"]["username"] + u": " + payload["head_commit"]["message"]
+                    print msg
+                    for chan in bot.channels:
+                        bot.msg(chan, msg)
+                except Exception, e:
+                    print e
 
                 should_build = False
-                for x in payload["head_commit"]["modified"]:
-                    if "si-ubuntu-defaults" in x:
-                        should_build = True
+                try:
+                    for x in payload["head_commit"]["modified"]:
+                        if "si-ubuntu-defaults" in x:
+                            should_build = True
+                except Exception, e:
+                    should_build = True
+                    print e
 
                 if should_build:
                     new_build = Delo(flavor)
