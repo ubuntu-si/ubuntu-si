@@ -209,12 +209,16 @@ def web_hook(flavor):
     return "FAIL"
 
 
+class BotThread(threading.Thread):
+    def run(self):
+        bot.start()
+
 if __name__ == "__main__":
     
     signal.signal(signal.SIGTERM, lambda *args: sys.exit(0))
     try:
         job_queue.start()
-        bot.start()
+        BotThread().start()
         app.run(host='0.0.0.0')
 
     except KeyboardInterrupt:
