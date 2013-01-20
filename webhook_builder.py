@@ -149,7 +149,7 @@ def web_hook(flavor):
                 payload = request.form["payload"]
                 payload = json_decode(payload)
                 try:
-                    msg = "Nov commit: " + payload["head_commit"]["committer"]["username"] + u": " +  payload["head_commit"]["message"] + "\n" + payload["head_commit"]["url"]  + "\n@" + payload["head_commit"]["timestamp"]
+                    msg = "Nov commit[" + flavor + "]: " + payload["head_commit"]["committer"]["username"] + u": " +  payload["head_commit"]["message"] + " " + payload["head_commit"]["url"]  + " @ " + payload["head_commit"]["timestamp"]
                     print msg
                     for chan in bot.channels:
                         bot.msg(chan, msg)
