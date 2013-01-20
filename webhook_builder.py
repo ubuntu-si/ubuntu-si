@@ -85,13 +85,13 @@ class BuildBot(irc.bot.SingleServerIRCBot):
 
         if '.isostatus' in cmd:
             if job_queue.aktivno is None:
-                self.sayall('Mirujem')
-                self.sayall('Prenos: (32bit) http://185.14.186.232/dist32/binary-hybrid.iso [.torent|.zsync]')
-                self.sayall('Prenos: (64bit) http://185.14.186.232/dist/binary-hybrid.iso [.torent|.zsync]')
+                self.connection.privmsg(nick, 'Mirujem')
+                self.connection.privmsg(nick, 'Prenos: (32bit) http://185.14.186.232/dist32/binary-hybrid.iso [.torent|.zsync]')
+                self.connection.privmsg(nick, 'Prenos: (64bit) http://185.14.186.232/dist/binary-hybrid.iso [.torent|.zsync]')
             else:
-                self.sayall('Delam')
+                self.connection.privmsg(nick, 'Delam')
                 for res in job_queue.aktivno.history:
-                    self.sayall(res)
+                    self.connection.privmsg(nick, res)
         if "dz0ny" == nick:
             if '.isobuild32' in cmd:
                 new_build = Delo('32')
@@ -169,9 +169,6 @@ class Delo(threading.Thread):
                     else:
                         self.sayall('Prenos: (64bit) http://185.14.186.232/dist/binary-hybrid.iso [.torent|.zsync]')
                     
-        for res in self.history:
-            bot.irc_notify(self.getName(), res)
-
         if self.handler:
             self.handler.koncaj()
 
