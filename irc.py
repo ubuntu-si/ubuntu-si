@@ -15,7 +15,9 @@ import socket, asyncore, asynchat
 class Origin(object): 
    source = re.compile(r'([^!]*)!?([^@]*)@?(.*)')
 
-   def __init__(self, bot, source, args): 
+   def __init__(self, bot, source, args):
+      if not source:
+         source = ""
       match = Origin.source.match(source or '')
       self.nick, self.user, self.host = match.groups()
 
@@ -106,12 +108,15 @@ class Bot(asynchat.async_chat):
       self.buffer += data
 
    def found_terminator(self): 
-      line = self.buffer.encode("utf-8")
+      line = self.buffer
       if line.endswith('\r'): 
          line = line[:-1]
       self.buffer = ''
 
-      #print 'GOT:', repr(line)
+      try:
+         line = line.decode('utf-8')
+      except UnicodeDecodeError:
+         line = line.decode('iso-8859-1')
       if line.startswith(':'): 
          source, line = line[1:].split(' ', 1)
       else: source = None
@@ -162,8 +167,12 @@ class Bot(asynchat.async_chat):
             return
 
       def safe(input): 
-         input = input.replace('\n', '')
-         return input.replace('\r', '')
+         if type(input) == str:
+            input = input.encode('utf-8')
+            input = input.replace(b'\n', b'')
+            return input.replace(b'\r', b'')
+         else:
+            return str(input)
       self.__write(('PRIVMSG', safe(recipient)), safe(text))
       self.stack.append((time.time(), text))
       self.stack = self.stack[-10:]
