@@ -18,5 +18,5 @@ http://www.enaa.com Enaa
 http://www.avto.net Avto.net
 http://www.arso.gov.si/vreme/napovedi%20in%20podatki/ Vremenska napoved ARSO
 http://gis.arso.gov.si/atlasokolja/ Atlas okolja
-http://https://www.ubuntu.si/ Ubuntu.si
-http://https://www.ubuntu.si/punbb/ Ubuntu.si forum
+http://www.ubuntu.si/ Ubuntu.si
+http://www.ubuntu.si/punbb/ Ubuntu.si forum
