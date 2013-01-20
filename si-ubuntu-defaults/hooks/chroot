@@ -18,7 +18,6 @@ add-apt-repository ppa:libreoffice/ppa -y
 add-apt-repository ppa:otto-kesselgulasch/gimp -y
 add-apt-repository ppa:janez-troha/ubuntu-si-welcome -y
 add-apt-repository ppa:tualatrix/ppa -y
-add-apt-repository ppa:janez-troha/ubuntu-si-welcome -y
 
 #Updated PPA
 apt-get --yes --force-yes update
