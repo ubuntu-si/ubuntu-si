@@ -104,14 +104,21 @@ class Bot(asynchat.async_chat):
       self.close()
       print >> sys.stderr, 'Closed!'
 
-   def collect_incoming_data(self, data): 
-      self.buffer += data
+   def collect_incoming_data(self, data):
+      try:
+         self.buffer += data
+      except Exception, e:
+         print e 
+      
 
-   def found_terminator(self): 
-      line = self.buffer
-      if line.endswith('\r'): 
-         line = line[:-1]
-      self.buffer = ''
+   def found_terminator(self):
+      try:
+         line = self.buffer
+         if line.endswith('\r'): 
+            line = line[:-1]
+         self.buffer = ''
+      except Exception, e:
+         print e 
 
       try:
          line = line.decode('utf-8')
