@@ -114,7 +114,7 @@ class BuildBot(irc.bot.SingleServerIRCBot):
                 msg = "{0}: {1}".format(thread.encode("utf-8"), point.encode("utf-8"))
             print msg
             self.sayall(msg)
-bot = BuildBot('#ubuntu-si2', "Owcica", 'irc.freenode.net')
+bot = BuildBot('#ubuntu-si', "Owcica", 'irc.freenode.net')
 
 
 class Delo(threading.Thread):
