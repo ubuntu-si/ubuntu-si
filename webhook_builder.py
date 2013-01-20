@@ -3,15 +3,18 @@
 
 import threading
 import logging
-import urlparse
+import signal
+import sys
 
 from datetime import datetime
 from pastebin import PastebinAPI
 from Queue import Queue
-from irc import Bot
+
+import irc.bot
+import irc.strings
 
 try:
-    from flask import Flask, render_template, request
+    from flask import Flask, request
 except Exception, e:
     print "pip install flask"
 
@@ -51,48 +54,67 @@ class Jobber(threading.Thread):
                 self.aktivno = delo
                 delo.start()
 job_queue = Jobber()
-job_queue.start()
 
 
-class IRCBOT(Bot):
+class BuildBot(irc.bot.SingleServerIRCBot):
+    def __init__(self, channel, nickname, server, port=6667):
+        irc.bot.SingleServerIRCBot.__init__(self, [(server, port)], nickname, nickname)
+        self.channel = channel
+
+    def on_nicknameinuse(self, c, e):
+        c.nick(c.get_nickname() + "_")
+
+    def on_welcome(self, c, e):
+        c.join(self.channel)
+
+    def on_privmsg(self, c, e):
+        self.do_command(e, e.arguments[0])
+
+    def on_pubmsg(self, c, e):
+        a = e.arguments[0]
+        if len(a) > 1 and a.startswith("."):
+            self.do_command(e, a.strip())
+        return
+
+    def sayall(self, msg):
+        self.connection.privmsg(self.channel, msg)
+
+    def do_command(self, e, cmd):
+        nick = e.source.nick
+        chan = e.target
+
+        if '.isostatus' in cmd:
+            if job_queue.aktivno is None:
+                self.sayall('Mirujem')
+                self.sayall('Prenos: (32bit) http://185.14.186.232/dist32/binary-hybrid.iso [.torent|.zsync]')
+                self.sayall('Prenos: (64bit) http://185.14.186.232/dist/binary-hybrid.iso [.torent|.zsync]')
+            else:
+                self.sayall('Delam')
+                for res in job_queue.aktivno.history:
+                    self.sayall(res)
+        if "dz0ny" == nick:
+            if '.isobuild32' in cmd:
+                new_build = Delo('32')
+                zaposlitve.put(new_build)
+                self.connection.privmsg(nick, u'Začel z izgradnjo 32bit iso')
+
+            if '.isobuild64' in cmd:
+                new_build = Delo('64')
+                zaposlitve.put(new_build)
+                self.connection.privmsg(nick, u'Začel z izgradnjo 64bit iso')
 
     def irc_notify(self, thread, point, text=""):
         url = ""
         if len(text) > 1:
             url = PastebinAPI().paste("94c4c6e3faf2271b9175bb7601738b79", text)
-        for chan in self.channels:
+
             if len(url) > 1:
                 msg = "Napaka pri gradnji > {0}: {1} {2}".format(thread.encode("utf-8"), point.encode("utf-8"), url.encode("utf-8"))
             else:
                 msg = "{0}: {1}".format(thread.encode("utf-8"), point.encode("utf-8"))
             print msg
-            self.msg(chan, msg)
-
-    def dispatch(self, origin, args):
-        cmd = "{0}".format(args[0]).encode("utf-8")
-        if '.isostatus' in cmd:
-            if job_queue.aktivno is None:
-                self.msg(origin.sender, 'Mirujem')
-            else:
-                self.msg(origin.sender, 'Delam')
-                for res in job_queue.aktivno.history:
-                    self.msg(origin.sender, res)
-        if '.isobuild32' in cmd and "dz0ny" in origin.nick:
-            new_build = Delo('32')
-            zaposlitve.put(new_build)
-            self.msg(origin.sender, 'Začel z izgradnjo 32bit iso')
-        if '.isobuild64' in cmd and "dz0ny" in origin.nick:
-            new_build = Delo('64')
-            zaposlitve.put(new_build)
-            self.msg(origin.sender, 'Začel z izgradnjo 64bit iso')
-bot = IRCBOT('UBBB-iso', "UBBB-iso", ['#ubuntu-si2'])
-
-
-class BOTThread(threading.Thread):
-    """BOTThread"""
-    def run(self):
-        bot.run('irc.freenode.net')
-BOTThread().start()
+            self.sayall(msg)
+bot = BuildBot('#ubuntu-si2', "Owcica", 'irc.freenode.net')
 
 
 class Delo(threading.Thread):
@@ -110,13 +132,23 @@ class Delo(threading.Thread):
         return
 
     def check_and_report(self, cmd):
+        self.delta = datetime.now() - self.start_time
         if cmd.status_code is 0:
-            self.history.append(u"Command: {0} ✓".format(" ".join(cmd.command)))
+            self.history.append(u"Command: {0} ✓ ({1})".format(
+                " ".join(cmd.command),
+                str(self.delta)
+            ))
             return True
         else:
-            bot.irc_notify(self.getName(), " ".join(cmd.command), 'Napaka: {0}\nLog: {1}'.format(cmd.std_err, cmd.std_out))
-            self.history.append(u"Command: {0} ✗".format(" ".join(cmd.command)))
-            return False  
+            bot.irc_notify(self.getName(), " ".join(cmd.command), 'Napaka: {0}\nLog: {1}'.format(
+                cmd.std_err,
+                cmd.std_out
+            ))
+            self.history.append(u"Command: {0} ✗ ({1})".format(
+                " ".join(cmd.command),
+                str(self.delta)
+            ))
+            return False
 
     def build_all(self):
 
@@ -129,11 +161,17 @@ class Delo(threading.Thread):
                     dist = envoy.run("make dist" + self.flavor)
                     self.check_and_report(dist)
 
+                    self.delta = datetime.now() - self.start_time
+                    bot.irc_notify(self.getName(), "Izgradnja je trajala {0}".format(str(self.delta)))
+
+                    if self.flavor is "32":
+                        self.sayall('Prenos: (32bit) http://185.14.186.232/dist32/binary-hybrid.iso [.torent|.zsync]')
+                    else:
+                        self.sayall('Prenos: (64bit) http://185.14.186.232/dist/binary-hybrid.iso [.torent|.zsync]')
+                    
         for res in self.history:
             bot.irc_notify(self.getName(), res)
 
-        self.delta = datetime.now() - self.start_time
-        bot.irc_notify(self.getName(), "Izgradnja je trajala {0}".format(str(self.delta)))
         if self.handler:
             self.handler.koncaj()
 
@@ -151,8 +189,7 @@ def web_hook(flavor):
                 try:
                     msg = "Nov commit[" + flavor + "]: " + payload["head_commit"]["committer"]["username"] + u": " +  payload["head_commit"]["message"] + " " + payload["head_commit"]["url"]  + " @ " + payload["head_commit"]["timestamp"]
                     print msg
-                    for chan in bot.channels:
-                        bot.msg(chan, msg)
+                    bot.sayall(msg)
                 except Exception, e:
                     print e
 
@@ -171,5 +208,14 @@ def web_hook(flavor):
                     return "OK"
     return "FAIL"
 
+
 if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+    
+    signal.signal(signal.SIGTERM, lambda *args: sys.exit(0))
+    try:
+        job_queue.start()
+        bot.start()
+        app.run(host='0.0.0.0')
+
+    except KeyboardInterrupt:
+        sys.exit(0)
