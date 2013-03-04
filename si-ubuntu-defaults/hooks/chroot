@@ -16,7 +16,7 @@ apt-get --yes --force-yes install software-properties-common
 #ppa-ji
 add-apt-repository ppa:libreoffice/ppa -y
 add-apt-repository ppa:otto-kesselgulasch/gimp -y
-add-apt-repository ppa:janez-troha/ubuntu-si-welcome -y
+add-apt-repository ppa:janez-troha/ubuntu-si-welcome-daily -y
 add-apt-repository ppa:tualatrix/ppa -y
 
 #Updated PPA
