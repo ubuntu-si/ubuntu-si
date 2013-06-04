@@ -21,4 +21,9 @@ Predloge sprejemam preko zavihka Issues :)
     
     make test
 
+Postopek izgradnje lokalno
+
+    docker build -t si_ubuntu .
+    docker run si_ubuntu
+
 Predogled na http://goo.gl/MzbPJ, prenos http://goo.gl/XbXke
