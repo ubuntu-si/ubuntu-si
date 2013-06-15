@@ -7,18 +7,22 @@ set -e
 # before it is packed into a squashfs. This is where you can apply extra tweaks
 # to the live system.
 
+
+
 #12.04
 apt-get --yes --force-yes install python-software-properties 
 
 #12.10
 apt-get --yes --force-yes install software-properties-common 
 
+
 #ppa-ji
 add-apt-repository ppa:libreoffice/ppa -y
 add-apt-repository ppa:otto-kesselgulasch/gimp -y
 add-apt-repository ppa:janez-troha/ubuntu-si-welcome-daily -y
 add-apt-repository ppa:tualatrix/ppa -y
-
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B05498B7
+echo "deb http://repo.steampowered.com/steam/ precise steam" > /etc/apt/sources.list.d/steam.list
 #Updated PPA
 apt-get --yes --force-yes update
 apt-get --yes --force-yes upgrade
@@ -27,13 +31,22 @@ apt-get --yes --force-yes dist-upgrade
 #Slovenjenje
 apt-get --yes --force-yes install firefox-locale-sl thunderbird-locale-sl hyphen-sl language-pack-gnome-sl language-pack-gnome-sl-base language-pack-sl libreoffice-help-sl libreoffice-l10n-sl myspell-sl
 apt-get --yes --force-yes install ubuntu-si-welcome 
-apt-get --yes --force-yes install ubuntu-tweak
-apt-get --yes --force-yes install ubuntu-si-welcome
+
 
 #Neuporabno
 apt-get purge gwibber --yes --force-yes
+apt-get purge language-pack-es --yes --force-yes
+apt-get purge language-pack-pt --yes --force-yes
+apt-get purge language-pack-zh-hans --yes --force-yes
+apt-get purge libreoffice-help-en-us --yes --force-yes
 apt-get --yes --force-yes autoremove --purge
 apt-get --yes --force-yes clean
+
+#dodatno
+apt-get --yes --force-yes install steam 
+apt-get --yes --force-yes install ubuntu-tweak
+apt-get --yes --force-yes install ubuntu-restricted-extras 
+apt-get --yes --force-yes install gstreamer-plugins-ugly 
 
 echo "Europe/Ljubljana" > /etc/timezone
 gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string --set "/desktop/gnome/interface/gtk_theme" "Radiance"
