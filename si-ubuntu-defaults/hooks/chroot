@@ -7,8 +7,6 @@ set -e
 # before it is packed into a squashfs. This is where you can apply extra tweaks
 # to the live system.
 
-
-
 #12.04
 apt-get --yes --force-yes install python-software-properties 
 
@@ -22,7 +20,7 @@ add-apt-repository ppa:otto-kesselgulasch/gimp -y
 add-apt-repository ppa:janez-troha/ubuntu-si-welcome-daily -y
 add-apt-repository ppa:tualatrix/ppa -y
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B05498B7
-echo "deb http://repo.steampowered.com/steam/ precise steam" > /etc/apt/sources.list.d/steam.list
+sh -c 'echo "deb http://repo.steampowered.com/steam/ precise steam" > /etc/apt/sources.list.d/steam.list'
 #Updated PPA
 apt-get --yes --force-yes update
 apt-get --yes --force-yes upgrade
@@ -45,8 +43,8 @@ apt-get --yes --force-yes clean
 #dodatno
 apt-get --yes --force-yes install steam 
 apt-get --yes --force-yes install ubuntu-tweak
-apt-get --yes --force-yes install ubuntu-restricted-extras 
-apt-get --yes --force-yes install gstreamer-plugins-ugly 
+apt-get --yes --force-yes install gstreamer0.10-plugins-ugly
+apt-get --yes --force-yes install vlc chromium-codecs-ffmpeg-extra
 
 echo "Europe/Ljubljana" > /etc/timezone
 gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults --type string --set "/desktop/gnome/interface/gtk_theme" "Radiance"
