@@ -42,6 +42,7 @@ apt-get --yes --force-yes autoremove --purge
 apt-get --yes --force-yes clean
 
 #dodatno
+rm -f /etc/apt/sources.list.d/steam.list
 apt-get --yes --force-yes install steam 
 apt-get --yes --force-yes install ubuntu-tweak
 apt-get --yes --force-yes install gstreamer0.10-plugins-ugly
