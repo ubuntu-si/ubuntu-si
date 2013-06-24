@@ -21,7 +21,7 @@ add-apt-repository ppa:otto-kesselgulasch/gimp -y
 add-apt-repository ppa:janez-troha/ubuntu-si-welcome-daily -y
 add-apt-repository ppa:tualatrix/ppa -y
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B05498B7
-sh -c 'echo "deb http://repo.steampowered.com/steam/ precise steam" > /etc/apt/sources.list.d/steam.list'
+sh -c 'echo "deb http://repo.steampowered.com/steam/ precise steam" > /etc/apt/sources.list.d/steamtemp.list'
 #Updated PPA
 apt-get --yes --force-yes update
 apt-get --yes --force-yes upgrade
@@ -42,8 +42,8 @@ apt-get --yes --force-yes autoremove --purge
 apt-get --yes --force-yes clean
 
 #dodatno
-rm -f /etc/apt/sources.list.d/steam.list
-apt-get --yes --force-yes install steam 
+apt-get --yes --force-yes install steam
+rm -f /etc/apt/sources.list.d/steamtemp.list
 apt-get --yes --force-yes install ubuntu-tweak
 apt-get --yes --force-yes install gstreamer0.10-plugins-ugly
 apt-get --yes --force-yes install vlc chromium-codecs-ffmpeg-extra
