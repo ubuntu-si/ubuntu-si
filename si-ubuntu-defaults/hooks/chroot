@@ -55,6 +55,8 @@ gconftool-2 --direct --config-source xml:readwrite:/etc/gconf/gconf.xml.defaults
 
 wget http://dk.fdv.uni-lj.si/ek/pdfs/ek_kovacic_2010_Linux_na_namizju.pdf -O "/usr/share/example-content/Linux_na_namizju.pdf"
 wget --no-check-certificate https://www.ubuntu.si/wordpress/wp-content/uploads/ubuntu-manual-sl-final-1204.pdf -O "/usr/share/example-content/Kako_začeti_z_Ubuntujem.pdf"
+wget --no-check-certificate https://github.com/ubuntu-si/ubuntu-si/raw/12.04/si-ubuntu-defaults/desktop/manual_1204.desktop -O "/etc/skel/manual_1204_skel.desktop"
+wget --no-check-certificate https://raw.github.com/ubuntu-si/ubuntu-si/12.04/si-ubuntu-defaults/desktop/linux_na_namizju.desktop -O "/etc/skel/linux_na_namizju_skel.desktop"
 
 #Chome
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
