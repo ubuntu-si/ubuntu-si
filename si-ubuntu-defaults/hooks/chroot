@@ -64,3 +64,5 @@ echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/source
 
 #fix https://github.com/dz0ny/ubuntu-si/issues/1
 sed -i 's/\"//g' /usr/lib/firefox/distribution/distribution.ini
+
+apt-get --yes --force-yes install linux-image-3.2.0-45-generic
