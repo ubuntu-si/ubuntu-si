@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Dobrodošli v Ubuntu
+Comment=Vsebuje pomembne informacije za nove uporabnike Ubuntu OS
+Categories=GNOME;Utility;
+Exec=/usr/bin/ubuntu-si-welcome
+Icon=/usr/share/ubuntu-si-welcome/media/ubuntu-si-welcome.svg
+Terminal=false
+Type=Application
