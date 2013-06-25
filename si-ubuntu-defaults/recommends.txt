@@ -18,3 +18,18 @@
 # fortunes-de
 myunity
 pastebinit
+gstreamer0.10-plugins-ugly
+vlc
+chromium-codecs-ffmpeg-extra
+ubuntu-tweak
+steam
+ubuntu-si-welcome
+firefox-locale-sl
+thunderbird-locale-sl
+hyphen-sl
+language-pack-gnome-sl
+language-pack-gnome-sl-base
+language-pack-sl
+libreoffice-help-sl
+libreoffice-l10n-sl
+myspell-sl
