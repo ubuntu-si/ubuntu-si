@@ -30,7 +30,7 @@ apt-get --yes --force-yes dist-upgrade
 #Slovenjenje
 apt-get --yes --force-yes install firefox-locale-sl thunderbird-locale-sl hyphen-sl language-pack-gnome-sl language-pack-gnome-sl-base language-pack-sl libreoffice-help-sl libreoffice-l10n-sl myspell-sl
 apt-get --yes --force-yes install ubuntu-si-welcome 
-
+#aptitude unmarkauto ubuntu-si-welcome
 
 #Neuporabno
 apt-get purge gwibber --yes --force-yes
@@ -44,6 +44,7 @@ apt-get --yes --force-yes clean
 #dodatno
 apt-get --yes --force-yes install steam
 rm -f /etc/apt/sources.list.d/steamtemp.list
+#aptitude unmarkauto steam
 apt-get --yes --force-yes install ubuntu-tweak
 apt-get --yes --force-yes install gstreamer0.10-plugins-ugly
 apt-get --yes --force-yes install vlc chromium-codecs-ffmpeg-extra
@@ -57,7 +58,7 @@ wget http://dk.fdv.uni-lj.si/ek/pdfs/ek_kovacic_2010_Linux_na_namizju.pdf -O "/u
 wget --no-check-certificate https://www.ubuntu.si/wordpress/wp-content/uploads/ubuntu-manual-sl-final-1204.pdf -O "/usr/share/example-content/Kako_začeti_z_Ubuntujem.pdf"
 mkdir -p /etc/skel/Desktop
 wget --no-check-certificate https://github.com/ubuntu-si/ubuntu-si/raw/12.04/si-ubuntu-defaults/desktop/manual_1204.desktop -O "/etc/skel/Desktop/manual_1204_skel.desktop"
-wget --no-check-certificate https://raw.github.com/ubuntu-si/ubuntu-si/12.04/si-ubuntu-defaults/desktop/linux_na_namizju.desktop -O "/etc/skel/Desktop/linux_na_namizju_skel.desktop"
+#wget --no-check-certificate https://raw.github.com/ubuntu-si/ubuntu-si/12.04/si-ubuntu-defaults/desktop/linux_na_namizju.desktop -O "/etc/skel/Desktop/linux_na_namizju_skel.desktop"
 wget --no-check-certificate https://raw.github.com/ubuntu-si/ubuntu-si/12.04/si-ubuntu-defaults/desktop/welcome-skel.desktop -O "/etc/skel/Desktop/welcome-skel.desktop"
 
 #Chome
